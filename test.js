@@ -27,7 +27,7 @@ const AdminPaths = [
   },
 ];
 
-// const newArray = AdminPaths.reduce((pre, curr) => {
+// const adminRoutes = AdminPaths.reduce((pre, curr) => {
 //   if (curr.path && curr.element) {
 //     pre.push({
 //       path: curr.path,
@@ -36,10 +36,10 @@ const AdminPaths = [
 //   }
 
 //   if (curr.children) {
-//     curr.children.forEach((child) => {
+//     curr.children.forEach((ele) => {
 //       pre.push({
-//         path: child.path,
-//         element: child.element,
+//         path: ele.path,
+//         element: ele.element,
 //       });
 //     });
 //   }
@@ -47,21 +47,21 @@ const AdminPaths = [
 //   return pre;
 // }, []);
 
-const layoutRoutes = AdminPaths.reduce((pre, cur) => {
-  if (cur.name && cur.path) {
+const adminSaidBar = AdminPaths.reduce((pre, curr) => {
+  if (curr.name && curr.path) {
     pre.push({
-      key: cur.name,
-      label: cur.path,
+      key: curr.name,
+      label: curr.path,
     });
   }
 
-  if (cur.children) {
+  if (curr.children) {
     pre.push({
-      key: cur.name,
-      label: cur.name,
-      children: cur.children.map((item) => ({
-        key: item.name,
-        label: item.path,
+      key: curr.name,
+      label: curr.name,
+      children: curr.children.map((ele) => ({
+        key: ele.name,
+        label: ele.path,
       })),
     });
   }
@@ -69,4 +69,26 @@ const layoutRoutes = AdminPaths.reduce((pre, cur) => {
   return pre;
 }, []);
 
-console.log(layoutRoutes);
+console.log(adminSaidBar);
+
+// const AdminSaidBar = AdminPaths.reduce((pre: TSaidBar[], cur) => {
+//   if (cur.name && cur.path) {
+//     pre.push({
+//       key: cur.name,
+//       label: <NavLink to={`/admin/${cur.path}`}>{cur.name}</NavLink>,
+//     });
+//   }
+
+//   if (cur.children) {
+//     pre.push({
+//       key: cur.name,
+//       label: cur.name,
+//       children: cur.children.map((item) => ({
+//         key: item.name,
+//         label: <NavLink to={`/admin/${item.path}`}>{item.name}</NavLink>,
+//       })),
+//     });
+//   }
+
+//   return pre;
+// }, []);
