@@ -1,18 +1,6 @@
-import { ReactNode } from "react";
+import { TGeneratorItems, TRoute } from "../types";
 
-type TRoute = {
-  path: string;
-  element: ReactNode;
-};
-
-type TItems = {
-  name: string;
-  path?: string;
-  element?: ReactNode;
-  children?: TItems[];
-};
-
-export const routerGenerator = (items: TItems[]) => {
+export const routerGenerator = (items: TGeneratorItems[]) => {
   const routes = items.reduce((pre: TRoute[], curr) => {
     if (curr.path && curr.element) {
       pre.push({

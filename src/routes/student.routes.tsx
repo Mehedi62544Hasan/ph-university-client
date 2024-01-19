@@ -1,14 +1,15 @@
-import StudentDashboard from "../pages/student/StudentDashboard"
+import OfferedCourse from "../pages/student/OfferedCourse";
+import StudentDashboard from "../pages/student/StudentDashboard";
 
-cosnt studentPaths = [
+export const StudentPaths = [
   {
-    name: 'Dashboard',
-    path: 'dashboard',
-    element: <StudentDashboard/>
+    name: "Dashboard",
+    path: "dashboard",
+    element: <StudentDashboard />,
   },
   {
-    name: 'Offered Course',
-    path: 'offered-course',
-    
-  }
-]
+    name: "Offered Course",
+    path: "offered-course",
+    element: <OfferedCourse />,
+  },
+];

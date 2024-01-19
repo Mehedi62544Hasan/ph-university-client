@@ -1,43 +1,13 @@
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
-import { AdminSaidBar } from "../../routes/admin.routes";
+import SaidBar from "./SaidBar";
 
-const { Header, Content, Footer, Sider } = Layout;
-
+const { Header, Content, Footer } = Layout;
 
 const MainLayout = () => {
   return (
     <Layout style={{ height: "100vh" }}>
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >
-        <div
-          style={{
-            color: "white",
-            textAlign: "center",
-            height: "4rem",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            fontWeight: "bold",
-          }}
-        >
-          <h1 style={{ font: "30px" }}>Ph Uni</h1>
-        </div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["4"]}
-          items={AdminSaidBar}
-        />
-      </Sider>
+      <SaidBar />
       <Layout>
         <Header style={{ padding: 0 }} />
         <Content style={{ margin: "24px 16px 0" }}>

@@ -1,13 +1,7 @@
-import { ReactNode } from "react";
 import FacultyDashboard from "../pages/faculty/FacultyDashboard";
 import OfferedCourse from "../pages/faculty/OfferedCourse";
 
-type TRoute = {
-  path: string;
-  element: ReactNode;
-};
-
-const facultyPaths = [
+export const FacultyPaths = [
   {
     name: "Dashboard",
     path: "dashboard",
