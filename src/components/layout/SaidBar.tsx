@@ -1,6 +1,8 @@
 import { Layout, Menu } from "antd";
 import { saidBarItemsGenerator } from "../../utils/saidBarItemsGenerator";
 import { AdminPaths } from "../../routes/admin.routes";
+import { useAppSelector } from "../../redux/features/hooks";
+import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 
 const { Sider } = Layout;
 
@@ -11,10 +13,10 @@ const ROLE = {
 };
 
 const SaidBar = () => {
-  const role = ROLE.ADMIN;
+  const user = useAppSelector(selectCurrentUser);
   let saidBarItem;
 
-  switch (role) {
+  switch (user!.role) {
     case ROLE.ADMIN:
       saidBarItem = saidBarItemsGenerator(AdminPaths, "admin");
       break;
