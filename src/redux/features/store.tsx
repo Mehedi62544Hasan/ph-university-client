@@ -13,7 +13,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const p   = {
+const persistConfig = {
   key: "auth",
   storage,
 };
