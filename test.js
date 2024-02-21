@@ -69,7 +69,6 @@ const adminSaidBar = AdminPaths.reduce((pre, curr) => {
   return pre;
 }, []);
 
-console.log(adminSaidBar);
 
 // const AdminSaidBar = AdminPaths.reduce((pre: TSaidBar[], cur) => {
 //   if (cur.name && cur.path) {

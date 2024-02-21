@@ -25,7 +25,7 @@ const Login = () => {
       };
 
       const res = await login(userInfo).unwrap();
-      console.log(res);
+      
 
       const verifyUser = verifyToken(res.data.accessToken) as TUser;
 

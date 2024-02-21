@@ -31,11 +31,10 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
 
   if (result?.error?.status === 404) {
-    toast.error("User not found");
+    toast.error(result?.error?.data?.message);
   }
 
   if (result?.error?.status === 401) {
-    console.log("Sending Refresh Token");
     const res = await fetch("http://localhost:5000/api/auth/refresh-token", {
       method: "POST",
       credentials: "include",
@@ -58,7 +57,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     }
   }
 
-  console.log(result);
 
   return result;
 };
