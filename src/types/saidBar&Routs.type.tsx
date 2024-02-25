@@ -4,7 +4,7 @@ export type TSaidBar = {
     key: string;
     label: ReactNode;
     children?: TSaidBar[];
-  };
+  } | undefined;
   
 export type TGeneratorItems = {
     name: string;

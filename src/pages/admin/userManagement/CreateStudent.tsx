@@ -13,15 +13,15 @@ import { bloodGroupOptions, genderOptions } from "../../../constants/global";
 
 const studentDefaultValues = {
   name: {
-    firstName: "I am ",
-    middleName: "Student",
-    lastName: "Number 1",
+    firstName: "Mr",
+    middleName: "AK",
+    lastName: "",
   },
   gender: "male",
 
   bloodGroup: "A+",
 
-  email: "student99@gmail.com",
+  email: "userxmen001@gmail.com",
   contactNo: "1235678",
   emergencyContactNo: "987-654-3210",
   presentAddress: "123 Main St, City",
@@ -50,22 +50,22 @@ const studentDefaultValues = {
 const CreateStudent = () => {
   const [addStudent, { data, error }] = useAddStudentMutation();
 
-  console.log({ data, error });
+  console.log(data, error);
 
   const { data: semesterData, isLoading: sIsLoading } =
     useGetAllSemestersQuery(undefined);
+
+  const { data: departmentData, isLoading: dIsLoading } =
+    useGetAcademicDepartmentsQuery(undefined);
 
   const semesterOptions = semesterData?.data?.map((item) => ({
     value: item?._id,
     label: `${item?.name} ${item?.year}`,
   }));
 
-  const { data: departmentData, isLoading: dIsLoading } =
-    useGetAcademicDepartmentsQuery(undefined);
-
   const departmentOptions = departmentData?.data?.map((item) => ({
     value: item?._id,
-    label: `{item?.name}`,
+    label: `${item?.name}`,
   }));
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -76,9 +76,11 @@ const CreateStudent = () => {
 
     const formData = new FormData();
     formData.append("data", JSON.stringify(studentData));
+    // formData.append("file", data.image);
+
+    console.log(Object.fromEntries(formData));
 
     addStudent(formData);
-    console.log(Object.fromEntries(formData));
   };
 
   return (

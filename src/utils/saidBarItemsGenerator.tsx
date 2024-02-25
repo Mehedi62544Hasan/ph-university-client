@@ -17,10 +17,14 @@ export const saidBarItemsGenerator = (
       pre.push({
         key: cur.name,
         label: cur.name,
-        children: cur.children.map((item) => ({
-          key: item.name,
-          label: <NavLink to={`/${role}/${item.path}`}>{item.name}</NavLink>,
-        })),
+        children: cur.children.map((item) => {
+        if(item.name){
+          return{
+            key: item.name,
+            label: <NavLink to={`/${role}/${item.path}`}>{item.name}</NavLink>,
+          }
+        }
+      }),
       });
     }
 
